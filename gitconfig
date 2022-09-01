@@ -1,0 +1,24 @@
+[user]
+        name = danholdaway
+        email = danholdaway@users.noreply.github.com
+
+[core]
+        hooksPath = /home/drholdaw/.git/hooks
+
+[credential]
+	helper = store
+
+[diff]
+ tool = xxdiff
+[difftool]
+ prompt = false
+
+[merge]
+ tool = xxdiff
+[mergetool]
+ prompt = false
+[filter "lfs"]
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true

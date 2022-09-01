@@ -1,0 +1,102 @@
+Host discover
+    ProxyCommand ssh nccs-PIV direct discover.nccs.nasa.gov
+    User drholdaw
+
+Host nccs-PIV
+    HostName login.nccs.nasa.gov
+    PKCS11Provider /usr/lib/ssh-keychain.dylib
+
+Host discover-rsa
+    ProxyCommand ssh -l drholdaw nccs-PIV direct discover.nccs.nasa.gov
+
+# Tunneling files
+# ---------------
+
+Host *
+    ControlPath ~/.ssh/master-%r@%h:%p
+    ControlMaster no
+    LogLevel Quiet
+    Protocol 2
+    ServerAliveInterval 900
+
+# NASA NAS
+# --------
+Host sfe
+    HostName                sfe6.nas.nasa.gov
+
+Host sfe sfe?.nas.nasa.gov
+    # Uncomment to allow multiplexing of single connections
+    #ControlMaster          auto
+    #ControlPath            ~/.ssh/master-%r@sfe:%p
+    #ControlPersist         1
+    ForwardAgent            yes
+    ForwardX11              yes
+    ServerAliveInterval     5m
+
+    # Secure front ends
+    Host sfe sfe?.nas.nasa.gov sup*.nas.nasa.gov
+        LogLevel                info
+        ProxyCommand            none
+
+    # Pleiades front end link
+    Host pfe pfe-last pfe.nas.nasa.gov pfe-last.nas.nasa.gov
+        HostKeyAlias            pfe20.nas.nasa.gov
+        ProxyCommand            ssh -ax -oCompression=no sfe ssh-balance %h
+
+    # Lou front end links
+    Host lfe lfe-last lfe.nas.nasa.gov lfe-last.nas.nasa.gov
+        HostKeyAlias            lfe5.nas.nasa.gov
+        ProxyCommand            ssh -ax -oCompression=no sfe ssh-balance %h
+
+    # Lou mass storage system
+    Host lou lou-last lou.nas.nasa.gov lou-last.nas.nasa.gov
+        HostKeyAlias            lfe5.nas.nasa.gov
+        ProxyCommand            ssh -ax -oCompression=no sfe ssh-balance %h
+
+    Host lou2 lou2-last lou2.nas.nasa.gov lou2-last.nas.nasa.gov
+        HostKeyAlias            lfe5.nas.nasa.gov
+        ProxyCommand            ssh -ax -oCompression=no sfe ssh-balance %h
+
+    # Add additional hosts to the list below as needed
+    Host *.nas.nasa.gov lou lou? lfe? pfe?? ?fe *-last mfe?
+        ForwardAgent            yes
+        HostbasedAuthentication no
+        Protocol                2
+        ProxyCommand            ssh -ax -oCompression=no sfe ssh-proxy %h
+        ServerAliveInterval     5m
+
+
+
+# NOAA Hera
+# ---------
+
+Host hera 
+    User Daniel.Holdaway
+    Port 65445
+    Hostname hera-rsa.rdhpcs.noaa.gov
+
+Host heraLocal
+    User Daniel.Holdaway
+    Port 65444
+    Hostname localhost
+
+# Niagara
+# -------
+
+Host niagara 
+    User Daniel.Holdaway
+    Port 65447
+    Hostname niagara-rsa.rdhpcs.noaa.gov
+
+Host niagaraLocal
+    User Daniel.Holdaway
+    Port 65447
+    Hostname localhost
+
+# NOAA Orion
+# ----------
+
+Host orion
+    Hostname orion-login.hpc.msstate.edu
+    User dholdawa
+
