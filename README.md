@@ -79,4 +79,4 @@ Now you should be ready to connect your IDE to your entire drive or projects tha
 ### Tips
 
 1. When your connection fails it can cause trouble for the mounted drive and your IDE that is accessing those files. As such you should not kill your tunnel 
-2. If the internet connection is not very fast 
+2. If experiencing lag you can try turning off communication with GitHub by the IDE. It might be trying to read a lot of files on the mounted drive.
