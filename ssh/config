@@ -1,13 +1,10 @@
 Host discover
-    ProxyCommand ssh nccs-PIV direct discover.nccs.nasa.gov
+    ProxyCommand ssh discover-host-PIV direct discover.nccs.nasa.gov
     User drholdaw
 
-Host nccs-PIV
+Host discover-host-PIV
     HostName login.nccs.nasa.gov
     PKCS11Provider /usr/lib/ssh-keychain.dylib
-
-Host discover-rsa
-    ProxyCommand ssh -l drholdaw nccs-PIV direct discover.nccs.nasa.gov
 
 # Tunneling files
 # ---------------
@@ -70,7 +67,7 @@ Host sfe sfe?.nas.nasa.gov
 # NOAA Hera
 # ---------
 
-Host hera 
+Host hera
     User Daniel.Holdaway
     Port 65445
     Hostname hera-rsa.rdhpcs.noaa.gov
@@ -83,7 +80,7 @@ Host heraLocal
 # Niagara
 # -------
 
-Host niagara 
+Host niagara
     User Daniel.Holdaway
     Port 65447
     Hostname niagara-rsa.rdhpcs.noaa.gov

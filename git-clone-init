@@ -1,29 +1,14 @@
 #!/bin/bash
 
 fullname_gith="danholdaway"
-fullname_noaa="Daniel Holdaway"
-fullname_nasa="Daniel Holdaway"
 
 email_gith="danholdaway@users.noreply.github.com"
-email_noaa="daniel.holdaway@noaa.gov"
-email_nasa="dan.holdaway@nasa.gov"
 
 case "$url" in
   *@github.com:*          ) name="${fullname_gith}"; email="${email_gith}";;
   *//github.com/*         ) name="${fullname_gith}"; email="${email_gith}";;
   github:*                ) name="${fullname_gith}"; email="${email_gith}";;
-  *@vlab.ncep.noaa.gov:*  ) name="${fullname_noaa}"; email="${email_noaa}";;
-  *//vlab.ncep.noaa.gov/* ) name="${fullname_noaa}"; email="${email_noaa}";;
-  gerrit:*                ) name="${fullname_noaa}"; email="${email_noaa}";;
-  *@developer.nasa.gov:*  ) name="${fullname_nasa}"; email="${email_nasa}";;
-  *//developer.nasa.gov/* ) name="${fullname_nasa}"; email="${email_nasa}";;
-  github-nasa:*           ) name="${fullname_nasa}"; email="${email_nasa}";;
-  *code.qt.io*            ) name="${fullname_gith}"; email="${email_gith}";;
 esac
 
 unset fullname_gith
-unset fullname_noaa
-unset fullname_nasa
 unset email_gith
-unset email_noaa
-unset email_nasa
