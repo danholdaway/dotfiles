@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-###############################################################
-# tcluster - open/close/restart a tunnel to cluster machines
-###############################################################
+# --------------------------------------------------------------------------------------------------
 
 import sys
 import os
@@ -11,8 +9,11 @@ from shlex import split
 from getpass import getuser
 import click
 
+# --------------------------------------------------------------------------------------------------
+
 clusters = ['discover', 'orion', 's4', 's4-submit', 'devwcoss', 'prodwcoss', 'cheyenne']
 
+# --------------------------------------------------------------------------------------------------
 
 class Tunnel(object):
 
@@ -111,6 +112,7 @@ class Tunnel(object):
                 raise OSError(f"Failed to remove master file {masterFile} for machine {self.machine}")
         return
 
+# --------------------------------------------------------------------------------------------------
 
 @click.command()
 @click.option('--machine', '-m', required=True, type=click.Choice(clusters))
@@ -139,5 +141,9 @@ def main(machine, list_, restart, kill, clean):
 
     return
 
+# --------------------------------------------------------------------------------------------------
+
 if __name__ == "__main__":
     main()
+
+# --------------------------------------------------------------------------------------------------
