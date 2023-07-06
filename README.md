@@ -9,7 +9,7 @@ Running an IDE over SSH is not likely to provide a satisfactory user experience 
 
 1. An IDE such as Visual Studio Code.
 2. Python. This is likely most easily achieved using Miniconda.
-3. For mounting drives you need MacFuse [https://osxfuse.github.io/](https://osxfuse.github.io/ "https://osxfuse.github.io/") . This requires admin privilege on your machine. Requires a restart and then to also go in system preferences and trust the software developer.
+3. For mounting drives you need SSHFS (From Self Service) and MacFuse [https://osxfuse.github.io/](https://osxfuse.github.io/ "https://osxfuse.github.io/") . This requires admin privilege on your machine. Later when you try to use MacFuse you might have to go in system preferences and 'trust the software developer' (requires restart).
 
 ### Establishing a tunnel
 
