@@ -1,0 +1,91 @@
+# Always use discover31 (ecflow)
+# ------------------------------
+#if [ $HOST != "discover31" ]; then
+#  echo "On $HOST, moving to discover31"
+#  ssh -XY discover31
+#fi
+
+
+# Start at $NOBACKUP
+# ------------------
+#cd $NOBACKUP
+
+# JEDI
+# ----
+cdir=`pwd`
+cd $NOBACKUP
+for f in Jedi*; do
+  if [ -d "$f" ]; then
+    export $f=$NOBACKUP/$f
+  fi
+done
+cd $cdir
+
+export jcsda=/gpfsm/dnb55/projects/p01/s2127/drholdaw
+
+export EwokPort=18078
+
+export FV3JEDI_TEST_TIER=2
+
+# Modules use paths
+# -----------------
+module purge
+module load git
+module load git-lfs
+module load xxdiff
+
+# Tree
+# ----
+module use -a /discover/nobackup/drholdaw/opt/modulefiles/core/
+module load tree
+alias tree3="tree -L 3"
+
+# Totalview
+# ---------
+export TVDSVRLAUNCHCMD=ssh
+
+# Git
+# ---
+alias gitxx="git difftool --tool=xxdiff"
+alias gitemptycommit="git commit --allow-empty -m \"TriggerTests\""
+alias lfsclean="rm $HOME/.git/hooks/p*"
+
+# Aliases
+# -------
+
+# Go to GMAO ci
+alias gmao_ci="sudo -i -u gmao_ci"
+
+# Clean out lua cache
+alias lua_clean="rm $HOME/.lmod.d/.cache/spiderT.x86_64_Linux.lua*"
+
+# Jedi modules
+alias jedi-py="source /home/drholdaw/jedi_modules/modules-python"
+alias jedi-int="source /home/drholdaw/jedi_modules/modules-intel"
+alias jedi-gnu="source /home/drholdaw/jedi_modules/modules-gnu"
+alias un-jedi-int="source /home/drholdaw/jedi_modules/un-modules-intel"
+alias un-jedi-gnu="source /home/drholdaw/jedi_modules/un-modules-gnu"
+
+# My modules
+alias mujo="module use -a /discover/nobackup/drholdaw/JediOpt/modulefiles/core/"
+alias muo="module use -a /discover/nobackup/drholdaw/opt/modulefiles/core/"
+
+# Slurm
+alias sq="squeue --format=\"%.18i %.9P %.16j %.8u %.8T %.10M %.9l %.6D %R\" -u $USER"
+alias sqt="squeue --start -u $USER"
+
+# File handling
+alias duu="du -h --max-depth=1"
+alias lss="ls -lhtr"
+alias lsize="ls -lSh"
+alias numfiles="ls -1 | wc -l"
+
+# grads
+alias grads="/discover/nobackup/projects/gmao/share/dasilva/opengrads/Contents/grads"
+
+# Interactive jobs
+alias ij_1="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=1 --time=4:00:00 --constraint=\"[cas|sky]\""
+alias ij_2="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=2 --time=4:00:00 --constraint=\"[cas|sky]\""
+alias ij_4="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=4 --time=4:00:00 --constraint=\"[cas|sky]\""
+alias ij_6="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=6 --time=4:00:00 --constraint=\"[cas|sky]\""
+
