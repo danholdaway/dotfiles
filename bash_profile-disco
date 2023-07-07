@@ -83,6 +83,9 @@ alias numfiles="ls -1 | wc -l"
 # grads
 alias grads="/discover/nobackup/projects/gmao/share/dasilva/opengrads/Contents/grads"
 
+# allow mpi on login node
+alias loginjob='source $HOME/bin/loginjob'
+
 # Interactive jobs
 alias ij_1="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=1 --time=4:00:00 --constraint=\"[cas|sky]\""
 alias ij_2="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=2 --time=4:00:00 --constraint=\"[cas|sky]\""
