@@ -42,7 +42,7 @@ Host *
     ServerAliveInterval 900
 ```
 
-Note that terms in double curly braces `{{}}` are to be replaces with the actual information for the machine being accessed. Note also that the above is needed when there is a gateway to the machine. For example you login to that gateway then make the selection of the machine you want. If not gateway exists then only then `direct` can be omitted. 
+Note that terms in double curly braces `{{}}` are to be replaced with the actual information for the machine being accessed. Note also that the above is needed when there is a gateway to the machine. For example you login to that gateway then make the selection of the machine you want. If no gateway exists then `direct` can be omitted. 
 
 Now you are ready to try and create a tunnel. Place directives, similar to the following, into you `$HOME/.zshenv` or equivalent file:
 
@@ -78,5 +78,5 @@ Now you should be ready to connect your IDE to your entire drive or projects tha
 
 ### Tips
 
-1. When your connection fails it can cause trouble for the mounted drive and your IDE that is accessing those files. As such you should not kill your tunnel 
+1. When your connection fails it can cause trouble for the mounted drive and your IDE that is accessing those files. As such you should not kill your tunnel before unmounting the drive.
 2. If experiencing lag you can try turning off communication with GitHub by the IDE. It might be trying to read a lot of files on the mounted drive.
