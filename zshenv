@@ -7,7 +7,7 @@ export PATH=$HOME/opt/homebrew/bin:$PATH
 
 ## Modules
 ## -------
-source $HOME/opt/homebrew/Cellar/lmod/8.7.4/init/zsh
+#source $HOME/opt/homebrew/Cellar/lmod/8.7.4/init/zsh
 
 # History
 # -------
@@ -16,22 +16,19 @@ export HISTSIZE=1000000
 
 # Python (Miniconda)
 # ------------------
-module use -a $HOME/opt/modulefiles/core
-module load miniconda
+export PATH=$HOME/opt/core/miniconda/py39/bin:$PATH
+export PYTHONPATH=$HOME/opt/core/miniconda/py39/python3.9:$PYTHONPATH
 
 # JEDI
 # ----
 cdir=`pwd`
-cd $HOME/OneDrive-NASA/
+cd $HOME/OneDrive\ -\ NASA/
 for f in Jedi*; do
   if [ -d "$f" ]; then
     export $f=$HOME/OneDrive-NASA/$f
   fi
 done
 cd $cdir
-
-# Make JediOpt modules available
-module use -a $HOME/Library/CloudStorage/OneDrive-NASA/JediOpt/modulefiles/core
 
 # Better color in ls
 # ------------------
