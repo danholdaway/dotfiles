@@ -15,7 +15,7 @@ export HISTSIZE=1000000
 # Python (Miniconda)
 # ------------------
 export PATH=$HOME/opt/core/miniconda/py39/bin:$PATH
-export PYTHONPATH=$HOME/opt/core/miniconda/py39/python3.9:$PYTHONPATH
+export PYTHONPATH=$HOME/opt/core/miniconda/py39/lib/python3.9:$PYTHONPATH
 
 # Laptop stuff
 # ------------
