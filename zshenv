@@ -3,11 +3,9 @@
 # Bin dir
 export PATH=$HOME/bin:$PATH
 # Homebrew
-export PATH=$HOME/opt/homebrew/bin:$PATH
-
-## Modules
-## -------
-source $HOME/opt/homebrew/Cellar/lmod/8.7.4/init/zsh
+export PATH=$HOME/opt/core/homebrew/bin:$PATH
+# Meld
+export PATH=/Applications/Meld.app/Contents/MacOS:$PATH
 
 # History
 # -------
@@ -16,22 +14,20 @@ export HISTSIZE=1000000
 
 # Python (Miniconda)
 # ------------------
-module use -a $HOME/opt/modulefiles/core
-module load miniconda
+export PATH=$HOME/opt/core/miniconda/py39/bin:$PATH
+export PYTHONPATH=$HOME/opt/core/miniconda/py39/lib/python3.9:$PYTHONPATH
 
-# JEDI
-# ----
-cdir=`pwd`
-cd $HOME/OneDrive-NASA/
-for f in Jedi*; do
-  if [ -d "$f" ]; then
-    export $f=$HOME/OneDrive-NASA/$f
-  fi
-done
-cd $cdir
+# Laptop stuff
+# ------------
+if [ "$HOST" = "gs6101-Exoniensis" ]; then
+    # Ready to use modules
+    source /Users/drholdaw/opt/core/homebrew/main/opt/lmod/init/zsh
+    export MODULEPATH=$HOME/opt/modulefiles/core
 
-# Make JediOpt modules available
-module use -a $HOME/Library/CloudStorage/OneDrive-NASA/JediOpt/modulefiles/core
+    export OPT=/Users/drholdaw/opt/
+fi
+
+
 
 # Better color in ls
 # ------------------
@@ -49,9 +45,9 @@ alias hist='history -500'
 # Discover
 # --------
 alias discover='ssh -XY discover'
-alias ctunneldisc='python3 $HOME/bin/tunnel_cluster.py -m discover'
-alias ktunneldisc='python3 $HOME/bin/tunnel_cluster.py -m discover -k'
-alias ltunneldisc='python3 $HOME/bin/tunnel_cluster.py -m discover -l'
+alias ctunneldisc='python $HOME/bin/tunnel_cluster.py -m discover'
+alias ktunneldisc='python $HOME/bin/tunnel_cluster.py -m discover -k'
+alias ltunneldisc='python $HOME/bin/tunnel_cluster.py -m discover -l'
 
 alias mountnobackup='sshfs discover:/discover/nobackup/drholdaw/ $HOME/Volumes/nobackup'
 alias umountnobackup='diskutil unmountDisk force $HOME/Volumes/nobackup'
@@ -62,10 +58,9 @@ alias umountdhome='diskutil unmountDisk force $HOME/Volumes/dhome'
 # NOAA Orion
 # ----------
 alias orion='ssh -XY orion'
-alias ctunnelorion='python3 $HOME/bin/tunnel_cluster.py -m orion'
-alias ktunnelorion='python3 $HOME/bin/tunnel_cluster.py -m orion -k'
-alias ltunnelorion='python3 $HOME/bin/tunnel_cluster.py -m orion -l'
+alias ctunnelorion='python $HOME/bin/tunnel_cluster.py -m orion'
+alias ktunnelorion='python $HOME/bin/tunnel_cluster.py -m orion -k'
+alias ltunnelorion='python $HOME/bin/tunnel_cluster.py -m orion -l'
 
 alias mountorion='sshfs orion:/work/noaa/da/dholdawa/ $HOME/Volumes/orion'
-alias umountorion='umount $HOME/Volumes/orion'
-alias forceumountorion='diskutil unmountDisk force $HOME/Volumes/orion'
+alias umountorion='diskutil unmountDisk force $HOME/Volumes/orion'
