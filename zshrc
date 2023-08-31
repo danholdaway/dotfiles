@@ -100,3 +100,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+	
+alias pivssh='ssh -A -o PKCS11Provider=/usr/lib/ssh-keychain.dylib'
