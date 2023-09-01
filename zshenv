@@ -33,6 +33,9 @@ cd $cdir
 # Make JediOpt modules available
 module use -a $HOME/Library/CloudStorage/OneDrive-NASA/JediOpt/modulefiles/core
 
+# One Drive link
+export ONE=$HOME/OneDrive-NASA
+
 # Better color in ls
 # ------------------
 export CLICOLOR=1
