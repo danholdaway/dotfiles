@@ -91,4 +91,5 @@ alias ij_1="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh
 alias ij_2="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=2 --time=4:00:00 --constraint=\"[cas|sky]\""
 alias ij_4="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=4 --time=4:00:00 --constraint=\"[cas|sky]\""
 alias ij_6="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=6 --time=4:00:00 --constraint=\"[cas|sky]\""
+alias ij_8="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=8 --time=2:00:00 --constraint=\"[cas|sky]\""
 
