@@ -12,22 +12,32 @@ export PATH=/Applications/Meld.app/Contents/MacOS:$PATH
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
-# Python (Miniconda)
-# ------------------
-export PATH=$HOME/opt/core/miniconda/py39/bin:$PATH
-export PYTHONPATH=$HOME/opt/core/miniconda/py39/lib/python3.9:$PYTHONPATH
-
-# Laptop stuff
-# ------------
+# Machine specific
+# ----------------
 if [ "$HOST" = "gs6101-Exoniensis" ]; then
+
+    # Laptop stuff
+    # ------------
+
+    # Python (miniconda)
+    export PATH=$HOME/opt/core/miniconda/py311_23.10.0-1/bin:$PATH
+    export PYTHONPATH=$HOME/opt/core/miniconda/py311_23.10.0-1/lib/python3.9:$PYTHONPATH
+
+
     # Ready to use modules
     source /Users/drholdaw/opt/core/homebrew/main/opt/lmod/init/zsh
     export MODULEPATH=$HOME/opt/modulefiles/core
 
-    export OPT=/Users/drholdaw/opt/
+else
+
+    # iMac Stuff
+    # ----------
+
+    # Python (miniconda)
+    export PATH=$HOME/opt/core/miniconda/py39/bin:$PATH
+    export PYTHONPATH=$HOME/opt/core/miniconda/py39/lib/python3.9:$PYTHONPATH
+
 fi
-
-
 
 # Better color in ls
 # ------------------
