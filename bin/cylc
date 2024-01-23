@@ -9,7 +9,7 @@ module load miniconda/3.9.7
 
 # Load cylc module
 module use -a /discover/nobackup/drholdaw/opt/modulefiles/core/
-module load cylc
+module load cylc/8.2.1
 
 # Run cylc command
 cylc "$@"

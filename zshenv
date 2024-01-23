@@ -39,6 +39,9 @@ else
 
 fi
 
+# One Drive link
+export ONE=$HOME/OneDrive-NASA
+
 # Better color in ls
 # ------------------
 export CLICOLOR=1
