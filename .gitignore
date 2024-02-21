@@ -1,1 +1,5 @@
 .DS_Store
+
+# Ssh files
+ssh/*id*
+ssh/*known*

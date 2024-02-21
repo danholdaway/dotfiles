@@ -3,41 +3,24 @@
 # Bin dir
 export PATH=$HOME/bin:$PATH
 # Homebrew
-export PATH=$HOME/opt/core/homebrew/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
 # Meld
 export PATH=/Applications/Meld.app/Contents/MacOS:$PATH
+# MacVim
+export PATH=/Applications/MacVim.app/Contents/bin/:$PATH
 
 # History
 # -------
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
-# Machine specific
-# ----------------
-if [ "$HOST" = "gs6101-Exoniensis" ]; then
+# Python (miniconda)
+export PATH=$HOME/opt/core/miniconda/latest/bin:$PATH
+export PYTHONPATH=$HOME/opt/core/miniconda/latest/lib/python3.11:$PYTHONPATH
 
-    # Laptop stuff
-    # ------------
-
-    # Python (miniconda)
-    export PATH=$HOME/opt/core/miniconda/py311_23.10.0-1/bin:$PATH
-    export PYTHONPATH=$HOME/opt/core/miniconda/py311_23.10.0-1/lib/python3.9:$PYTHONPATH
-
-
-    # Ready to use modules
-    source /Users/drholdaw/opt/core/homebrew/main/opt/lmod/init/zsh
-    export MODULEPATH=$HOME/opt/modulefiles/core
-
-else
-
-    # iMac Stuff
-    # ----------
-
-    # Python (miniconda)
-    export PATH=$HOME/opt/core/miniconda/py39/bin:$PATH
-    export PYTHONPATH=$HOME/opt/core/miniconda/py39/lib/python3.9:$PYTHONPATH
-
-fi
+# Ready to use modules
+source /opt/homebrew/opt/lmod/init/zsh
+export MODULEPATH=$HOME/opt/modulefiles/core
 
 # One Drive link
 export ONE=$HOME/OneDrive-NASA
@@ -48,30 +31,16 @@ export CLICOLOR=1
 
 # Handy aliases
 # -------------
-alias gvi=$HOME/Applications/MacVim.app/Contents/bin/mvim
 alias duu='du -h --max-depth=1'
 alias lss='ls -lhtr'
 alias lsize='ls -lSh'
 alias numfiles='find ./ -type f | wc -l'
 alias hist='history -500'
 
-# Discover
-# --------
-alias discover='ssh -XY discover'
-alias ctunneldisc='python $HOME/bin/tunnel_cluster.py -m discover'
-alias ktunneldisc='python $HOME/bin/tunnel_cluster.py -m discover -k'
-alias ltunneldisc='python $HOME/bin/tunnel_cluster.py -m discover -l'
-
-alias mountnobackup='sshfs discover:/discover/nobackup/drholdaw/ $HOME/Volumes/nobackup'
-alias umountnobackup='diskutil unmountDisk force $HOME/Volumes/nobackup'
-
-alias mountdhome='sshfs discover:/discover/home/drholdaw/ $HOME/Volumes/dhome'
-alias umountdhome='diskutil unmountDisk force $HOME/Volumes/dhome'
-
 # NOAA Orion
 # ----------
-alias orion='ssh -XY orion'
-alias ctunnelorion='python $HOME/bin/tunnel_cluster.py -m orion'
+#alias orion='ssh -XY orion'
+alias ctunnelorion='ssh -YMNfq orion'
 alias ktunnelorion='python $HOME/bin/tunnel_cluster.py -m orion -k'
 alias ltunnelorion='python $HOME/bin/tunnel_cluster.py -m orion -l'
 
