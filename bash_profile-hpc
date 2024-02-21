@@ -12,15 +12,15 @@ cd $cdir
 # Modules use paths
 # -----------------
 module purge
-module load git
-module load git-lfs
-module load xxdiff
+#module load git
+#module load git-lfs
+#module load xxdiff
 
 # Tree
 # ----
 module use -a $nb/opt/modulefiles/core/
-module load tree
-alias tree3="tree -L 3"
+#module load tree
+#alias tree3="tree -L 3"
 
 # Git
 # ---
