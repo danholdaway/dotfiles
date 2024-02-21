@@ -1,35 +1,22 @@
-# Sample .bashrc for SuSE Linux
-# Copyright (c) SuSE GmbH Nuernberg
+# Set the main data directory for this machine
+# --------------------------------------------
 
-# There are 3 different types of shells in bash: the login shell, normal shell
-# and interactive shell. Login shells read ~/.profile and interactive shells
-# read ~/.bashrc; in our setup, /etc/profile sources ~/.bashrc - thus all
-# settings made here will also take effect in a login shell.
-#
-# NOTE: It is recommended to make language settings in ~/.profile rather than
-# here, since multilingual X sessions would not work properly if LANG is over-
-# ridden in every subshell.
+# Get the machine name
+hostname=$(hostname)
 
-# This might be helpful for Linux newbies who previously used DOS...
-#test -f /etc/profile.dos && . /etc/profile.dos
+# If the first three characters of the machine name are "hfe" then machine name is hera
+if [ "${hostname:0:3}" == "hfe" ]; then
+  export machine_name="hera"
+elif [ "${hostname:0:5}" == "orion" ]; then
+  export machine_name="orion"
+fi
 
-# Some applications read the EDITOR variable to determine your favourite text
-# editor. So uncomment the line below and enter the editor of your choice :-)
-#export EDITOR=/usr/bin/vim
-#export EDITOR=/usr/bin/mcedit
-
-# For some news readers it makes sense to specify the NEWSSERVER variable here
-#export NEWSSERVER=your.news.server
-
-# If you want to use a Palm device with Linux, uncomment the two lines below.
-# For some (older) Palm Pilots, you might need to set a lower baud rate
-# e.g. 57600 or 38400; lowest is 9600 (very slow!)
-#
-#export PILOTPORT=/dev/pilot
-#export PILOTRATE=115200
-
-#test -s ~/.alias && . ~/.alias
-
+# Set the nobackup directory for
+if [ "$machine_name" == "hera" ]; then
+  export nb=/scratch1/NCEPDEV/da/$USER
+elif [ "$machine_name" == "orion" ]; then
+  export nb=/work/noaa/da/$USER
+fi
 
 # Expand environment variables
 # ----------------------------
@@ -41,7 +28,7 @@ C_DEFAULT="\[\033[m\]"
 C_GREEN="\[\033[01;32m\]"
 C_LIGHTCYAN="\[\033[01;36m\]"
 
-PS1=${C_GREEN}'disco➜'${C_LIGHTCYAN}' ${PWD#"${PWD%/*/*/*}/"}> '${C_DEFAULT}
+PS1=${C_GREEN}'$machine_name➜'${C_LIGHTCYAN}' ${PWD#"${PWD%/*/*/*}/"}> '${C_DEFAULT}
 
 # Deafult permissions
 # -------------------
