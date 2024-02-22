@@ -35,8 +35,6 @@ cd $cdir
 # ----------------
 if [ "$machine_name" == "hera" ]; then
   module load xxdiff
-elif [ "$machine_name" == "orion" ]; then
-
 fi
 
 # Local modules
