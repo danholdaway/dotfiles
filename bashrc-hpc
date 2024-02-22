@@ -13,10 +13,3 @@ PS1=${C_GREEN}'$machine_name➜'${C_LIGHTCYAN}' ${PWD#"${PWD%/*/*/*}/"}> '${C_DE
 # Deafult permissions
 # -------------------
 umask 022
-
-# Unlimited stack
-# ---------------
-if [ "$machine_name" != "hera" ]; then
-  ulimit -s unlimited
-  ulimit -v unlimited
-fi

@@ -31,24 +31,30 @@ for f in Jedi*; do
 done
 cd $cdir
 
-# Modules use paths
-# -----------------
-module purge
-#module load git
-#module load git-lfs
-#module load xxdiff
+# Standard modules
+# ----------------
+if [ "$machine_name" == "hera" ]; then
+  module load xxdiff
+elif [ "$machine_name" == "orion" ]; then
 
-# Tree
-# ----
+fi
+
+# Local modules
 module use -a $nb/opt/modulefiles/core/
-#module load tree
-#alias tree3="tree -L 3"
 
 # Git
 # ---
 alias gitxx="git difftool --tool=xxdiff"
 alias gitemptycommit="git commit --allow-empty -m \"EmptyCommit\""
 alias lfsclean="rm $HOME/.git/hooks/p*"
+
+# Go to main data directory
+# -------------------------
+alias nb="cd $nb"
+
+# Tree
+# ----
+alias tree3="tree -L 3"
 
 # Aliases
 # -------
