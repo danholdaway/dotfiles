@@ -8,7 +8,7 @@ hostname=$(hostname)
 if [ "${hostname:0:3}" == "hfe" ]; then
   export machine_name="hera"
 elif [ "${hostname:0:5}" == "Orion" ]; then
-  export machine_name="orion"
+  export machine_name="orion"w
 fi
 
 # Set the nobackup directory for
