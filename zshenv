@@ -39,7 +39,7 @@ alias hist='history -500'
 
 # NOAA Hera
 # ---------
-alias hera='ssh -XYq heraLocal'
+alias hera='ssh -XYq hera'
 alias ctunnelhera='ssh -XYqL 65445:localhost:65445 hera'
 
 # NOAA Orion
