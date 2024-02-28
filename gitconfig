@@ -3,7 +3,7 @@
 	email = danholdaway@users.noreply.github.com
 
 [core]
-	hooksPath = /home/drholdaw/.git/hooks
+	hooksPath = $HOME/.git/hooks
 
 [credential]
 	helper = store
