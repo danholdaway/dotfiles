@@ -16,6 +16,7 @@
 
 [merge]
 	tool = xxdiff
+	log = 200
 
 [mergetool]
 	prompt = false
