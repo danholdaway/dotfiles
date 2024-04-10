@@ -1,15 +1,23 @@
 # NOAA Hera
 # ---------
 
-Host hera
-    User Daniel.Holdaway
-    Port 65445
-    Hostname hera-rsa.rdhpcs.noaa.gov
+Host dtn-hera
+  User Daniel.Holdaway
+  HostName dtn-hera.fairmont.rdhpcs.noaa.gov
+
+Host heraPrinceton hera
+  User Daniel.Holdaway
+  HostName hera-rsa.princeton.rdhpcs.noaa.gov
+
+Host heraBoulder
+  User Daniel.Holdaway
+  HostName hera-rsa.rdhpcs.noaa.gov
 
 Host heraLocal
-    User Daniel.Holdaway
-    Port 65444
-    Hostname localhost
+  User Daniel.Holdaway
+  HostName localhost
+  Port 65445
+
 
 # Niagara
 # -------
@@ -31,3 +39,15 @@ Host orion
     Hostname orion-login.hpc.msstate.edu
     User dholdawa
 
+
+# Everyone
+# --------
+
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/master-%r@%h:%p
+  #ControlPersist 600
+  LogLevel Quiet
+  Protocol 2
+  ServerAliveInterval 60
+  ServerAliveCountMax 1000

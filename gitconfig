@@ -3,7 +3,7 @@
 	email = danholdaway@users.noreply.github.com
 
 [core]
-	hooksPath = /home/drholdaw/.git/hooks
+	hooksPath = $HOME/.git/hooks
 
 [credential]
 	helper = store
@@ -16,6 +16,7 @@
 
 [merge]
 	tool = xxdiff
+	log = 200
 
 [mergetool]
 	prompt = false

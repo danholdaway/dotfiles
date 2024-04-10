@@ -37,6 +37,11 @@ alias lsize='ls -lSh'
 alias numfiles='find ./ -type f | wc -l'
 alias hist='history -500'
 
+# NOAA Hera
+# ---------
+alias hera='ssh -XYq hera'
+alias ctunnelhera='ssh -XYqL 65445:localhost:65445 hera'
+
 # NOAA Orion
 # ----------
 #alias orion='ssh -XY orion'
