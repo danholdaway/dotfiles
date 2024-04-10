@@ -15,6 +15,13 @@ fi
 if [ "$machine_name" == "hera" ]; then
   export nb=/scratch1/NCEPDEV/da/$USER
   source $HOME/.bashrc
+
+  # GDAS app testing environment variables
+  export SLURM_ACCOUNT=da-cpu
+  export SALLOC_ACCOUNT=$SLURM_ACCOUNT
+  export SBATCH_ACCOUNT=$SLURM_ACCOUNT
+  export SLURM_QOS=debug
+
 elif [ "$machine_name" == "orion" ]; then
   export nb=/work/noaa/da/$USER
 fi
@@ -82,6 +89,5 @@ alias numfiles="ls -1 | wc -l"
 
 # Interactive jobs
 # ----------------
-
-#alias ij_1="salloc --partition=compute --qos=advda --account=g0613 --job-name=dh_inter --nodes=1 --time=4:00:00 --constraint=\"[cas|sky]\""
+alias ij_1="salloc --partition=hera --qos=batch --account=da-cpu --job-name=dh_inter --nodes=1 --time=1:00:00"
 
