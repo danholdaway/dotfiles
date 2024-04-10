@@ -16,6 +16,17 @@ module purge
 #module load git-lfs
 #module load xxdiff
 
+# Get the machine name
+hostname=$(hostname)
+
+# If the first three characters of the machine name are "hfe" then machine name is hera
+if [ "${hostname:0:3}" == "hfe" ]; then
+  export machine_name="hera"
+elif [ "${hostname:0:5}" == "Orion" ]; then
+  export machine_name="orion"
+  source $HOME/.bashrc
+fi
+
 # Tree
 # ----
 module use -a $nb/opt/modulefiles/core/
