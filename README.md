@@ -80,8 +80,7 @@ Note: The original window where you typed `ctunnelhera` serves to keep the tunne
 
 Now you can try an IDE. Download and install the latest version of VSCode. In the market place of VSCode search for the `Remote - SSH` extension from Microsoft and install it.
 
-In the lower left corner of VSCode click the green box with two arrows to open a remote window. At the top click `Connect to Host` and then select heraLocal. It might take a few seconds first time while some VSCode hooks are installed on Hera but after that you will be able to browse your files on Hera and start benefiting from the vast resources that VSCode enables.
-
+In the lower left corner of VSCode click the green box with two arrows to open a remote window. At the top click `Connect to Host` and then select heraLocal. It might take a few seconds first time while some VSCode hooks are installed on Hera but after that you will be able to browse your files on Hera and start benefiting from the vast resources that VSCode enables. You can have language helpers from the marketplace, have a terminal in the window, use Jupyter notebooks, markdown previews and if change is scary even have Emacs key bindings ;)!
 
 # Mac-centric instructions for using an Integrated Development Environment (IDE) such as VSCode on an HPC platform like Orion
 
