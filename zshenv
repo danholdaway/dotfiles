@@ -16,6 +16,10 @@ export MODULEPATH=$HOME/opt/modulefiles/core
 # One Drive link
 export ONE=$HOME/OneDrive-NASA
 
+# JAVA
+# ----
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
 # HOMEBREW
 # --------
 export HOMEBREW_ROOT=/opt/homebrew
@@ -48,6 +52,8 @@ mv $HOME/.ssh/known_hosts_nolh $HOME/.ssh/known_hosts
 
 alias hera='ssh -vXYq heraLocal'
 alias ctunnelhera='ssh -XYqL 65445:localhost:65445 hera'
+alias ctunnelheraBoulder='ssh -XYqL 65445:localhost:65445 heraBoulder'
+
 
 # NOAA Orion
 # ----------
