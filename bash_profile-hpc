@@ -16,16 +16,35 @@ if [ "$machine_name" == "hera" ]; then
   export nb=/scratch1/NCEPDEV/da/$USER
   source $HOME/.bashrc
 
+  export st2=/scratch1/NCEPDEV/stmp2/$USER
+  export st4=/scratch1/NCEPDEV/stmp4/$USER
+  alias st2="cd $st2"
+  alias st4="cd $st4"
+
   # GDAS app testing environment variables
   export SLURM_ACCOUNT=da-cpu
   export SALLOC_ACCOUNT=$SLURM_ACCOUNT
   export SBATCH_ACCOUNT=$SLURM_ACCOUNT
   export SLURM_QOS=debug
 
+  # Observations used by operations
+  export obs=/scratch1/NCEPDEV/global/glopara/dump
+
+  # Jedi modules
+  alias modules_int="source $HOME/jedi_modules/modules_int"
+  alias modules_gnu="source $HOME/jedi_modules/modules_gnu"
+
+  # Disk usage naughty list
+  alias naughty_list="cat /scratch2/SYSADMIN/project-info/project-usage-by-user/da"
+
 elif [ "$machine_name" == "orion" ]; then
   export nb=/work/noaa/da/$USER
   source $HOME/.bashrc
 fi
+
+# home/bin in path
+# ----------------
+export PATH=$HOME/bin:$PATH
 
 
 # Create short cuts to all directories beginning $nb/Jedi
@@ -38,6 +57,10 @@ for f in Jedi*; do
   fi
 done
 cd $cdir
+
+# JEDI Testing things
+# -------------------
+export FV3JEDI_TEST_TIER=2
 
 # Standard modules
 # ----------------
@@ -90,5 +113,12 @@ alias numfiles="ls -1 | wc -l"
 
 # Interactive jobs
 # ----------------
-alias ij_1="salloc --partition=hera --qos=batch --account=da-cpu --job-name=dh_inter --nodes=1 --time=1:00:00"
+alias ij_1=" salloc --partition=hera --qos=debug --account=da-cpu --job-name=dh_inter --nodes=1  --time=0:30:00 --mem=0"
+alias ij_2=" salloc --partition=hera --qos=debug --account=da-cpu --job-name=dh_inter --nodes=2  --time=0:30:00 --mem=0"
+alias ij_4=" salloc --partition=hera --qos=debug --account=da-cpu --job-name=dh_inter --nodes=4  --time=0:30:00 --mem=0"
+alias ij_6=" salloc --partition=hera --qos=debug --account=da-cpu --job-name=dh_inter --nodes=6  --time=0:30:00 --mem=0"
+alias ij_24="salloc --partition=hera --qos=debug --account=da-cpu --job-name=dh_inter --nodes=24 --time=0:30:00 --mem=0"
+alias ij_48="salloc --partition=hera --qos=debug --account=da-cpu --job-name=dh_inter --nodes=48 --time=0:30:00 --mem=0"
 
+# Gsi debugging
+alias ij_gsi="salloc --partition=hera --qos=debug --account=da-cpu --job-name=dh_inter --nodes=54 --ntasks-per-node=5 --cpus-per-task=8 --time=0:30:00 --mem=0"

@@ -32,3 +32,6 @@
 
 [pull]
 	rebase = false
+[safe]
+	directory = /scratch1/NCEPDEV/da/Travis.J.Elless/git/develop_for_snow_comparison_Dec_20/global-workflow
+	directory = /scratch1/NCEPDEV/da/Russ.Treadon/git/global-workflow/test/sorc/gdas.cd/parm/jcb-gdas
