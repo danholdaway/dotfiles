@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Check if the first argument is "--help"
+if [ "$1" == "--help" ]; then
+    echo "Usage: $0 <python_script> [arguments...]"
+    echo
+    echo "Available Python scripts in $HOME/bin:"
+    if [[ -d "$HOME/bin" ]]; then
+        ls "$HOME/bin"/*.py 2>/dev/null || echo "No Python scripts found."
+    else
+        echo "$HOME/bin directory does not exist."
+    fi
+    exit 0
+fi
+
+# Check if at least one argument (the Python script) is provided
+if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 <python_script> [arguments...]"
+    echo "Use --help to list available Python scripts."
+    exit 1
+fi
+
+# Extract the Python script name
+PYTHON_SCRIPT="$1"
+
+# Check if $PYTHON_SCRIPT does not end with .py, then add it
+if [[ ! "$PYTHON_SCRIPT" =~ \.py$ ]]; then
+    PYTHON_SCRIPT="$PYTHON_SCRIPT.py"
+fi
+
+# Check if the Python script exists in $HOME/bin
+if [[ ! -f "$HOME/bin/$PYTHON_SCRIPT" ]]; then
+    echo "Error: Python script '$PYTHON_SCRIPT' not found in $HOME/bin."
+    echo "Use --help to list available Python scripts."
+    exit 1
+fi
+
+# Shift the arguments to pass the remaining ones to the Python script
+shift
+
+# Load miniconda module
+module load miniconda
+
+# Execute the Python script with the remaining arguments
+python3 "$HOME/bin/$PYTHON_SCRIPT" "$@"
+
+# Unload the module
+module unload miniconda
