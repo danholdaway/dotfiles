@@ -1,3 +1,24 @@
+# NOAA Ursa
+# ---------
+
+Host dtn-ursa
+  User Daniel.Holdaway
+  HostName dtn-ursa.fairmont.rdhpcs.noaa.gov
+
+Host ursaPrinceton ursa
+  User Daniel.Holdaway
+  HostName ursa-rsa.princeton.rdhpcs.noaa.gov
+
+Host ursaBoulder
+  User Daniel.Holdaway
+  HostName ursa-rsa.boulder.rdhpcs.noaa.gov
+
+Host ursaLocal
+  User Daniel.Holdaway
+  HostName localhost
+  Port 65445
+
+
 # NOAA Hera
 # ---------
 

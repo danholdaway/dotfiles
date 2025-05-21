@@ -45,11 +45,20 @@ alias jedi_docker='docker run -u nonroot --rm -it -v /Users/noaa/Docker/shared_d
 # ----
 alias meld="open -W -a Meld $@"
 
-# NOAA Hera
-# ---------
+# Known hosts clean up
+# --------------------
 grep -v '\[localhost\]:65445' $HOME/.ssh/known_hosts > $HOME/.ssh/known_hosts_nolh
 mv $HOME/.ssh/known_hosts_nolh $HOME/.ssh/known_hosts
 
+
+# Ursa
+# ----
+alias ursa='ssh -vXYq ursaLocal'
+alias ctunnelursa='ssh -XYqL 65445:localhost:65445 ursa'
+alias ctunnelursaBoulder='ssh -XYqL 65445:localhost:65445 ursaBoulder'
+
+# Hera
+# ----
 alias hera='ssh -vXYq heraLocal'
 alias ctunnelhera='ssh -XYqL 65445:localhost:65445 hera'
 alias ctunnelheraBoulder='ssh -XYqL 65445:localhost:65445 heraBoulder'
