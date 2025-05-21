@@ -16,14 +16,14 @@ fi
 # Set the nobackup directory for
 if [ "$machine_name" == "hera" ]; then
 
-  export scratch_da = /scratch1/NCEPDEV/da/$USER
+  export scratch_da=/scratch1/NCEPDEV/da/$USER
 
   # Disk usage naughty list
   alias naughty_list="cat /scratch2/SYSADMIN/project-info/project-usage-by-user/da"
 
 elif [ "$machine_name" == "ursa" ]; then
 
-  export scratch_da = /scratch3/NCEPDEV/da/$USER
+  export scratch_da=/scratch3/NCEPDEV/da/$USER
 
 fi
 
