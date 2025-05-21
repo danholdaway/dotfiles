@@ -39,6 +39,9 @@ Host orion
     Hostname orion-login.hpc.msstate.edu
     User dholdawa
 
+Host hercules
+    Hostname hercules-login.hpc.msstate.edu
+    User dholdawa
 
 # Everyone
 # --------

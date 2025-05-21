@@ -64,3 +64,13 @@ alias ltunnelorion='python $HOME/bin/tunnel_cluster.py -m orion -l'
 
 alias mountorion='sshfs orion:/work/noaa/da/dholdawa/ $HOME/Volumes/orion'
 alias umountorion='diskutil unmountDisk force $HOME/Volumes/orion'
+
+# NOAA Hercules
+# -------------
+alias hercules='ssh -XY hercules'
+alias ctunnelhercules='ssh -YMNfq hercules'
+alias ktunnelhercules='python $HOME/bin/tunnel_cluster.py -m hercules -k'
+alias ltunnelhercules='python $HOME/bin/tunnel_cluster.py -m hercules -l'
+
+alias mounthercules='sshfs hercules:/work/noaa/da/dholdawa/ $HOME/Volumes/hercules'
+alias umounthercules='diskutil unmountDisk force $HOME/Volumes/hercules'

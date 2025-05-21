@@ -1,7 +1,7 @@
 # oh-my-zsh
 # ---------
 export ZSH="$HOME/opt/src/ohmyzsh/fork"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell-dan"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
